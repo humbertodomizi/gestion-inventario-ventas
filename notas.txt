@@ -1,0 +1,28 @@
+PROYECTO FINAL - GESTOR DE INVENTARIO Y VENTAS
+
+Cómo estará estructurada la funcionalidad de la aplicación?
+- CRUD de productos (nombre, descripción, cantidad, precio de costo, precio de venta y % de ganancia auto calculado)
+- CRUD de clientes (nombre, email, teléfono, dirección)
+- CRUD de ventas (selección de producto, cantidad, cliente, posibilidad de crear nuevo cliente si no existe en la lista)
+- Tabla para cada entidad con botones de acciones (ver, editar, eliminar)
+- Sección de configuración de proyecto (Por ahora, solo valor IVA global)
+
+Qué podremos hacer?
+- Podremos cargar productos, clientes y realizar ventas.
+- Al crear una venta se reduce automáticamente el stock
+- Cálculo automático del total de la venta 
+
+Qué no podremos hacer?
+- No hay backend, no hay bases de datos, no hay APIs, la persistencia de los datos es local (Local Storage)
+- No hay autenticación (ni roles, ni usuarios)
+- No hay envío de datos hacia Google Sheets (quizás podríamos agregarlo a la fase 2)
+- No hay integración con pasarelas de pago o control gubernamental
+- No hay historial de cambios o auditoría
+
+
+----------------------------
+
+Orden de construcción del proyecto
+
+1. Crear repositorio en GitHub (crear cuenta primero)
+2. Pushear mis archivos locales y crear una rama solo para desarrollo (Debemos tener Git instalado en nuestra máquina)
