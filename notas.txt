@@ -25,4 +25,4 @@ Qué no podremos hacer?
 Orden de construcción del proyecto
 
 1. Crear repositorio en GitHub (crear cuenta primero)
-2. Pushear mis archivos locales y crear una rama solo para desarrollo (Debemos tener Git instalado en nuestra máquina)
+2. Pushear mis archivos locales y crear una rama solo para desarrollo (Debemos tener Git instalado en nuestra máquina).
