@@ -146,13 +146,56 @@ class CalculationsUtils {
    * @param {number} price - Precio a validar
    * @returns {boolean} true si es valido, false si no
    */
-  isValidPrice(price){
+  isValidPrice(price) {
     return !isNaN(price) && price >= 0;
   }
 
-  //que una cantidad que le pasemos sea valida
+  /**
+   * Valida que una cantidad sea válida
+   * @param {number} quantity - Cantidad a validar
+   * @returns {boolean} true si es valida, false si no
+   */
+  isValidQuantity(quantity) {
+    return !isNaN(quantity) && quantity >= 0 && Number.isInteger(quantity);
+  }
 
-  //redondear a 2 decimales
+  /**
+   * Redondea a 2 decimales
+   * @param {number} number - Número a redondear
+   * @returns {number} Número redondeado
+   */
+  roundToTwoDecimals(number) {
+    return Math.round(number * 100) / 100;
+  }
 
-  //calcular estadisticas de ventas
+  /**
+   * Calcula estadísticas de ventas
+   * @param {Array} sales - Array de ventas
+   * @returns {Object} Estadísticas calculadas
+   */
+  calculateSalesStats(sales) {
+    if (!sales || sales.length === 0) {
+      return {
+        totalSales: 0,
+        totalRevenue: 0,
+        averageSale: 0,
+        totalVat: 0,
+      };
+    }
+
+    //Si el if no salta, significa que sales tiene ventas dentro
+    const totalSales = sales.length;
+    const totalRevenue = sales.reduce((sum, sale) => sum + sale.total, 0);
+    const totalVat = sales.reduce((sum, sale) => sum + sale.vat, 0);
+    const averageSale = totalRevenue / totalSales;
+
+    return {
+      totalSales: this.roundToTwoDecimals(totalSales),
+      totalRevenue: this.roundToTwoDecimals(totalRevenue),
+      averageSale: this.roundToTwoDecimals(averageSale),
+      totalVat: this.roundToTwoDecimals(totalVat),
+    };
+  }
 }
+
+const calculations = new CalculationsUtils();
