@@ -1,1 +1,314 @@
-/* Diseño responsivo para diferentes tamaños de pantalla */
+/* Diseño responsive para diferentes tamaños de pantalla */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 768px) {
+    .app-container {
+        margin: 0;
+        box-shadow: none;
+    }
+    
+    .header {
+        padding: 1rem;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .nav-tabs {
+        gap: 0.25rem;
+    }
+    
+    .tab-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+    }
+    
+    .table {
+        min-width: 600px;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .modal-actions .btn {
+        width: 100%;
+    }
+    
+    .table-actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    .header {
+        padding: 0.75rem;
+    }
+    
+    .header h1 {
+        font-size: 1.3rem;
+    }
+    
+    .nav-tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .tab-btn {
+        padding: 0.75rem;
+        text-align: center;
+    }
+    
+    .main-content {
+        padding: 0.75rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.8rem;
+    }
+    
+    .modal-content {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        max-height: 100vh;
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .modal form {
+        padding: 1rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+    
+    .sale-summary {
+        padding: 1rem;
+    }
+    
+    .summary-item {
+        font-size: 0.9rem;
+    }
+    
+    .summary-item.total {
+        font-size: 1rem;
+    }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 320px) {
+    .header h1 {
+        font-size: 1.1rem;
+    }
+    
+    .tab-btn {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.25rem;
+        font-size: 0.75rem;
+    }
+    
+    .action-btn {
+        padding: 0.25rem;
+        font-size: 0.75rem;
+        min-width: 25px;
+        height: 25px;
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1200px) {
+    .app-container {
+        max-width: 1400px;
+    }
+    
+    .main-content {
+        padding: 3rem;
+    }
+    
+    .table-container {
+        font-size: 1.1rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 1.25rem;
+    }
+}
+
+/* Modo landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        padding: 0.5rem 1rem;
+    }
+    
+    .header h1 {
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .nav-tabs {
+        gap: 0.25rem;
+    }
+    
+    .tab-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .section-header {
+        margin-bottom: 1rem;
+    }
+    
+    .modal-content {
+        max-height: 95vh;
+    }
+}
+
+/* Mejoras para impresión */
+@media print {
+    .header,
+    .nav-tabs,
+    .section-header,
+    .table-actions,
+    .modal {
+        display: none;
+    }
+    
+    .app-container {
+        box-shadow: none;
+        max-width: none;
+    }
+    
+    .main-content {
+        padding: 0;
+    }
+    
+    .table {
+        border: 1px solid #000;
+    }
+    
+    .table th,
+    .table td {
+        border: 1px solid #000;
+        padding: 0.5rem;
+    }
+}
+
+/* Mejoras de accesibilidad para usuarios con preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Alto contraste para mejor accesibilidad */
+@media (prefers-contrast: high) {
+    .btn-primary {
+        background: #000;
+        color: #fff;
+        border: 2px solid #000;
+    }
+    
+    .btn-secondary {
+        background: #666;
+        color: #fff;
+        border: 2px solid #666;
+    }
+    
+    .btn-danger {
+        background: #000;
+        color: #fff;
+        border: 2px solid #000;
+    }
+    
+    .table th {
+        background: #000;
+        color: #fff;
+    }
+    
+    .table tbody tr:hover {
+        background: #000;
+        color: #fff;
+    }
+}
