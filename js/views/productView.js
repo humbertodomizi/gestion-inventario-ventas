@@ -204,9 +204,13 @@ class ProductView {
   setupEventListeners() {
     //boton cancelar
     const closeBtn = document.querySelectorAll(".close");
+    const closeButton = document.getElementById("close-button");
+
     closeBtn.forEach((button) => {
       button.addEventListener("click", () => this.hideProductModal());
     });
+
+    closeButton.addEventListener("click", () => this.hideProductModal());
 
     //cerrar modal al hacer clic fuera
     this.modal.addEventListener("click", (event) => {
@@ -280,4 +284,4 @@ class ProductView {
   }
 }
 
-const productView = new ProductView()
+const productView = new ProductView();

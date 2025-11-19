@@ -10,7 +10,17 @@
   </head>
   <body>
     <div class="app-container">
-      <main class="main-container">
+      <header class="header">
+        <h1>Gestión de Inventario y Ventas</h1>
+        <nav class="nav-tabs">
+          <button class="tab-btn active" data-tab="products">Productos</button>
+          <button class="tab-btn" data-tab="customers">Clientes</button>
+          <button class="tab-btn" data-tab="sales">Ventas</button>
+          <button class="tab-btn" data-tab="settings">Configuración</button>
+        </nav>
+      </header>
+
+      <main class="main-content">
         <section id="products" class="tab-content active">
           <div class="section-header">
             <h2>Gestión de Productos</h2>
@@ -34,6 +44,72 @@
               </thead>
               <tbody></tbody>
             </table>
+          </div>
+        </section>
+
+        <section id="customers" class="tab-content">
+          <div class="section-header">
+            <h2>Gestión de Clientes</h2>
+            <button class="btn btn-primary" id="add-customer-btn">
+              Agregar Cliente
+            </button>
+          </div>
+
+          <div class="table-container">
+            <table class="table" id="customers-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Email</th>
+                  <th>Teléfono</th>
+                  <th>Dirección</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="sales" class="tab-content">
+          <div class="section-header">
+            <h2>Gestión de Ventas</h2>
+            <button class="btn btn-primary" id="add-sale-btn">
+              Agregar Venta
+            </button>
+          </div>
+
+          <div class="table-container">
+            <table class="table" id="sales-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Cliente</th>
+                  <th>Producto</th>
+                  <th>Cantidad</th>
+                  <th>Precio Unit.</th>
+                  <th>Total</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="settings" class="tab-content">
+          <div class="section-header">
+            <h2>Configuración Global</h2>
+          </div>
+
+          <div class="settings-form">
+            <div class="form-group">
+              <label for="vat-percentage">Porcentaje de IVA (%)</label>
+              <input type="number" id="vat-percentage" min="0" max="100" />
+              <button id="save-vat-btn" class="btn btn-primary">
+                Guardar IVA
+              </button>
+            </div>
           </div>
         </section>
       </main>
@@ -99,7 +175,7 @@
             </div>
 
             <div class="modal-actions">
-              <button type="button" class="btn btn-secondary close">
+              <button type="button" id="close-button" class="btn btn-secondary">
                 Cancelar
               </button>
               <button type="submit" class="btn btn-primary">Guardar</button>
@@ -108,6 +184,7 @@
         </form>
       </div>
     </div>
+
     <script src="js/utils/calculations.js"></script>
     <script src="js/utils/storage.js"></script>
     <script src="js/models/product.js"></script>
