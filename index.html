@@ -115,6 +115,7 @@
       </main>
     </div>
 
+    <!-- MODAL DE PRODUCTO -->
     <div id="product-modal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
@@ -185,11 +186,59 @@
       </div>
     </div>
 
+    <!-- MODAL DE CLIENTE -->
+    <div id="customer-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="customer-modal-title">Agregar Cliente</h3>
+          <span class="close">&times;</span>
+        </div>
+        <form id="customer-form">
+          <div class="form-group">
+            <label for="customer-name">Nombre del cliente</label>
+            <input type="text" id="customer-name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="customer-email">Email</label>
+            <input type="email" id="customer-email" />
+          </div>
+
+          <div class="form-group">
+            <label for="customer-phone">Teléfono</label>
+            <input type="tel" id="customer-phone" />
+          </div>
+
+          <div class="form-group">
+            <label for="customer-address">Dirección</label>
+            <textarea id="customer-address" rows="2"></textarea>
+          </div>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              id="cancel-customer"
+              class="btn btn-secondary"
+            >
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script src="js/utils/calculations.js"></script>
     <script src="js/utils/storage.js"></script>
+
     <script src="js/models/product.js"></script>
     <script src="js/views/productView.js"></script>
     <script src="js/controllers/productController.js"></script>
+
+    <script src="js/models/customer.js"></script>
+    <script src="js/views/customerView.js"></script>
+    <script src="js/controllers/customerController.js"></script>
+
     <script src="js/app.js"></script>
   </body>
 </html>

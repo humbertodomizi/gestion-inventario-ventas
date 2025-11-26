@@ -78,11 +78,93 @@ class InventoryApp {
         selectedButton.classList.add("active");
       }
 
-      this.currentTab = tabName
+      this.currentTab = tabName;
     } catch (error) {
       console.error("Error al mostrar pestaña:", error);
       this.showErrorMessage("Error al mostrar pestaña");
     }
+  }
+
+  /**
+   * Actualiza los datos de una pestaña específica
+   * @param {string} tabName - Nombre de la pestaña
+   */
+  refreshTabData(tabName) {
+    try {
+      switch (tabName) {
+        case "products":
+          productController.loadProducts();
+          break;
+        case "customers":
+          customerController.loadCustomers();
+          break;
+        case "sales":
+          salesController.loadSales();
+          break;
+        case "settings":
+          settingsController.loadSettings();
+          break;
+      }
+    } catch (error) {
+      console.error("Error al actualizar los datos de la pestaña:", error);
+    }
+  }
+
+  /**
+   * Cierra todos los modales abiertos
+   */
+  closeAllModals() {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach((modal) => {
+      modal.classList.remove("show");
+      modal.style.display = "none";
+    });
+  }
+
+  /**
+   * Muestra un mensaje de error global
+   * @param {string} message - Mensaje a mostrar
+   */
+  showErrorMessage(message) {
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "error-message";
+    errorDiv.style.position = "fixed";
+    errorDiv.style.top = "20px";
+    errorDiv.style.right = "20px";
+    errorDiv.style.zIndex = "9999";
+    errorDiv.style.maxWidth = "300px";
+    errorDiv.textContent = message;
+
+    document.body.appendChild(errorDiv);
+
+    setTimeout(() => {
+      if (errorDiv.parentNode) {
+        errorDiv.parentNode.removeChild(errorDiv);
+      }
+    }, 5000);
+  }
+
+  /**
+   * Muestra un mensaje de éxito global
+   * @param {string} message - Mensaje a mostrar
+   */
+  showErrorMessage(message) {
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "success-message";
+    errorDiv.style.position = "fixed";
+    errorDiv.style.top = "20px";
+    errorDiv.style.right = "20px";
+    errorDiv.style.zIndex = "9999";
+    errorDiv.style.maxWidth = "300px";
+    errorDiv.textContent = message;
+
+    document.body.appendChild(errorDiv);
+
+    setTimeout(() => {
+      if (errorDiv.parentNode) {
+        errorDiv.parentNode.removeChild(errorDiv);
+      }
+    }, 3000);
   }
 }
 
@@ -92,6 +174,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.InventoryApp = new InventoryApp();
 
     window.productController = productController;
+    window.customerController = customerController;
+    //saleController, settingsController
+    
   } catch (error) {
     console.error("Error al inicializar la aplicación:", error);
     alert("Error al cargar la aplicación. Por favor, recarga la página");
